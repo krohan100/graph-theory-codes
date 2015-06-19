@@ -1,7 +1,7 @@
-/*	A C++ class for implementing Disjoint Set Operations
+/*  A C++ class for implementing Disjoint Set Operations
  *
- *	Author: Rohan Khanna
- *	Language: C++
+ *  Author: Rohan Khanna
+ *  Language: C++
  *  Usage: Just include the class' code in your application. The main() function is just for demo purposes.
  *  Date: 19th June 2015
  */
@@ -13,7 +13,7 @@ class UnionFind
 {
 	/* size[i]   -> stores the size of the subtree rooted at index i.
 	 * parent[i] -> stroes the index of the component representative.
-	 * count	 -> stores the number of connected components.
+	 * count     -> stores the number of connected components.
 	 */
 	 
 	int *size,*parent,count;	
@@ -52,7 +52,7 @@ class UnionFind
 
 		while(x!=root)
 		{
-			int newParent = parent[x];	// Store x's current parent
+			int newParent = parent[x];		// Store x's current parent
 			parent[x] = root;			// Update the parent of x to root;
 			x = newParent;				// Move up the path
 		}
