@@ -1,23 +1,33 @@
+/*	A C++ program for implementing topological sort.
+ *
+ *	Author: Rohan Khanna
+ *	Language: C++
+ *  Usage: Just create a graph object, populate its edges and call the topological sort method.
+ *  Date: 19th June 2015
+ */
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+ * The Graph class
+ */
+
 class Graph{
 
-	int V;
-	list<int> *adj;
+	private:
+		int V;				// Number of vertices
+		list<int> *adj;		// Adj List of the Graph object
 
-	void topological_sort_util(int v,bool visited[],stack<int> &Stack);
+		// Topological sort utility function (this helper makes the recursive call)
+		void topological_sort_util(int v,bool visited[],stack<int> &s); 	
 
-public:
-
-	Graph(int v);
-
-	void add_edge(int u,int v);
-
-	void topological_sort();
-
-	
-
+	public:
+		Graph(int v);					// Constructor for the class
+		void add_edge(int u,int v);		// Adding an edge from u->v
+		void topological_sort();		// Topological sort method 
 };
 
 Graph::Graph(int v)
@@ -31,7 +41,7 @@ void Graph::add_edge(int u,int v)
 	adj[u].push_back(v);
 }
 
-void Graph::topological_sort_util(int v,bool visited[], stack<int> &Stack)
+void Graph::topological_sort_util(int v,bool visited[], stack<int> &s)
 {
 	visited[v] = true;
 	list<int>::iterator it;
@@ -40,17 +50,16 @@ void Graph::topological_sort_util(int v,bool visited[], stack<int> &Stack)
 	{
 		if(!visited[*it])
 		{
-			topological_sort_util(*it,visited,Stack);
+			topological_sort_util(*it,visited,s);
 		}
 	}
 
-	Stack.push(v);	
+	s.push(v);	
 }
 
 void Graph::topological_sort()
 {
-	stack<int> Stack;
-
+	stack<int> s;
 	bool *visited = new bool[V];
 
 	for(int i=0;i<V;i++)
@@ -62,15 +71,16 @@ void Graph::topological_sort()
 	{
 		if(!visited[i])
 		{
-			topological_sort_util(i,visited,Stack);
+			topological_sort_util(i,visited,s);
 		}
 	}
 
-	while(!Stack.empty())
+	while(!s.empty())
 	{
-		cout << Stack.top() << " ";
-		Stack.pop();
+		cout << s.top() << " ";
+		s.pop();
 	}
+	cout << endl;
 }
 
 int main()
