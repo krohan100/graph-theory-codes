@@ -2,8 +2,8 @@
  *
  *	Author: Rohan Khanna
  *	Language: C++
- *  Usage: Just include the class' code in your application. The main() function is just for demo purposes.
- *  Date: 19th June 2015
+ *  	Usage: Just include the class' code in your application. The main() function is just for demo purposes.
+ *  	Date: 19th June 2015
  */
 
 #include <bits/stdc++.h>
