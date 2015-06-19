@@ -2,8 +2,8 @@
  *
  *	Author: Rohan Khanna
  *	Language: C++
- *  Usage: Just create a graph object, populate its edges and call the topological sort method.
- *  Date: 19th June 2015
+ *	Usage: Just create a graph object, populate its edges and call the topological sort method.
+ *  	Date: 19th June 2015
  */
 
 
